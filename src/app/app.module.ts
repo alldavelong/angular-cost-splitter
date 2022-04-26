@@ -10,8 +10,10 @@ import { ListComponent } from './list/list.component';
 import { MenuPlusComponent } from './menu-plus/menu-plus.component';
 import { FormComponent } from './form/form.component';
 
+
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button'
+import { MatMenuModule } from '@angular/material/menu'; 
 
 import { JournalComponent } from './journal/journal.component';
 import { BalanceComponent } from './balance/balance.component';
@@ -36,7 +38,8 @@ import { PaymentComponent } from './payment/payment.component';
     BrowserAnimationsModule,
     NgbModule,
     MatTabsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent]
