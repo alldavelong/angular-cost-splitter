@@ -15,6 +15,8 @@ import { MatButtonModule } from '@angular/material/button'
 
 import { JournalComponent } from './journal/journal.component';
 import { BalanceComponent } from './balance/balance.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { PaymentComponent } from './payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { BalanceComponent } from './balance/balance.component';
     MenuPlusComponent,
     FormComponent,
     JournalComponent,
-    BalanceComponent
+    BalanceComponent,
+    ExpenseComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

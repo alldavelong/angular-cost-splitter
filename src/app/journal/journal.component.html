@@ -1,1 +1,5 @@
-<p>journal works!</p>
+<ul class="journalEntries">
+    <li *ngFor="let ex of expenses">
+        <app-expense [expense]="ex"></app-expense>
+    </li>
+</ul>
