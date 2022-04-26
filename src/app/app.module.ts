@@ -10,19 +10,29 @@ import { ListComponent } from './list/list.component';
 import { MenuPlusComponent } from './menu-plus/menu-plus.component';
 import { FormComponent } from './form/form.component';
 
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatButtonModule } from '@angular/material/button'
+
+import { JournalComponent } from './journal/journal.component';
+import { BalanceComponent } from './balance/balance.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     NaviComponent,
     ListComponent,
     MenuPlusComponent,
-    FormComponent
+    FormComponent,
+    JournalComponent,
+    BalanceComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    MatTabsModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
