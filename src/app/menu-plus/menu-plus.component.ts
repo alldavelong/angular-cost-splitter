@@ -9,7 +9,13 @@ export class MenuPlusComponent implements OnInit {
 
   constructor() { }
 
+  
+
   ngOnInit(): void {
+  }
+
+  onSelect(){
+    this.isDisplay = !this.isDisplay;
   }
 
 }

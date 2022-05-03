@@ -2,7 +2,7 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item (click) ="onSelect()">
       <span>Abrechnen</span>
     </button>
     <button mat-menu-item>
@@ -12,4 +12,33 @@
       <span>Ausgabe</span>
     </button>
   </mat-menu>
+
+  <div [hidden]="isDisplay">
+    <button mat-mini-fab ="inputscreen" color="white">x
+  </button>
+
+  <div class="container" align="center">
+      <form>
+          <br>   
+              <select ng-model="myVar">
+                  <option value="Choose your name">Choose your name
+                  <option value="name1">Name1
+                  <option value="name2">Name2
+                  <option value="name3">Name3
+                  <option value="name3">Name4
+              </select>
+          <br>
+      <br>
+          <input type="date" id="date" name="date" value="Date"><br>
+      <br>
+          <input type="text" id="IntendedUse" name="IntendedUse" value="Intended use"><br>  
+      
+      <br>
+          <input type="text" id="Amount" name="Amount" value="Amount / €"><br>  
+      </form>
+      <br>
+       <button mat-raised-button color="primary">confirm</button><br>
+  </div>
+
+  </div>
   

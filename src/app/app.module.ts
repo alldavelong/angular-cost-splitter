@@ -19,6 +19,8 @@ import { JournalComponent } from './journal/journal.component';
 import { BalanceComponent } from './balance/balance.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { PaymentComponent } from './payment/payment.component';
+import { InputscreenComponent } from './inputscreen/inputscreen.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,8 @@ import { PaymentComponent } from './payment/payment.component';
     JournalComponent,
     BalanceComponent,
     ExpenseComponent,
-    PaymentComponent
+    PaymentComponent,
+    InputscreenComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { PaymentComponent } from './payment/payment.component';
     NgbModule,
     MatTabsModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
