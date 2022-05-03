@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EXPENSES } from '../mock-expenses';
+import { EXPENSES, PAYMENTS } from '../mock-expenses';
 
 @Component({
   selector: 'app-journal',
@@ -9,10 +9,15 @@ import { EXPENSES } from '../mock-expenses';
 export class JournalComponent implements OnInit {
 
   expenses = EXPENSES;
+  payments = PAYMENTS;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+}
 
+export interface IJournalEntry {
+  spentBy: string;
+  amount: number;
 }

@@ -9,7 +9,6 @@ export class ExpenseComponent implements OnInit {
 
   @Input() expense: any;
 
-
   constructor() { }
 
   ngOnInit(): void {

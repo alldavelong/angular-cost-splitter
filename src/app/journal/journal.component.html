@@ -1,5 +1,8 @@
 <ul class="journalEntries">
-    <li *ngFor="let ex of expenses">
-        <app-expense [expense]="ex"></app-expense>
+    <li *ngFor="let entry of expenses">
+        <app-expense [expense]="entry"></app-expense>
+    </li>
+    <li *ngFor="let entry of payments">
+        <app-payment [payment]="entry"></app-payment>
     </li>
 </ul>
