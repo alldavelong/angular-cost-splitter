@@ -1,12 +1,14 @@
 import { IJournalEntry } from "../journal/journal.component";
 
 export class Expense implements IJournalEntry {
+  id: number;
   date: string;
   spentBy: string;
   description: string;
   amount: number;
   
-  constructor(date: string, spentBy: string, description: string, amount: number) {
+  constructor(id: number, date: string, spentBy: string, description: string, amount: number) {
+    this.id = id;
     this.date = date;
     this.spentBy = spentBy;
     this.description = description;

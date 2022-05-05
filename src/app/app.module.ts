@@ -18,6 +18,9 @@ import { JournalComponent } from './journal/journal.component';
 import { BalanceComponent } from './balance/balance.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { PaymentComponent } from './payment/payment.component';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule } from '@angular/common/http';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,11 @@ import { PaymentComponent } from './payment/payment.component';
     NgbModule,
     MatTabsModule,
     MatButtonModule,
-    MatMenuModule
+    MatMenuModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

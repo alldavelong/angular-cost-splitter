@@ -1,24 +1,29 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Expense } from './expense/expense';
 import { IJournalEntry } from './journal/journal.component';
-import { EXPENSES, PAYMENTS } from './mock-expenses';
 import { Payment } from './payment/payment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class JournalEntryService {
+  private expensesUrl = 'api/expenses';
+  private paymentsUrl = 'api/payments';
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
+  
+  getExpenses(): Observable<Expense[]> {
+    return this.httpClient.get<Expense[]>(this.expensesUrl);
+  }
 
   getPayments(): Observable<Payment[]> {
-    return of(PAYMENTS);
+    return this.httpClient.get<Payment[]>(this.paymentsUrl);
   }
-
-  getExpenses(): Observable<Expense[]> {
-    return of(EXPENSES);
-  }
+  
 
   // getJournalEntries(): Observable<IJournalEntry[]> {
   //   let entries = (<IJournalEntry[]>EXPENSES).concat(PAYMENTS);

@@ -29,6 +29,7 @@ export class JournalComponent implements OnInit {
 }
 
 export interface IJournalEntry {
+  id: number;
   spentBy: string;
   amount: number;
 }
