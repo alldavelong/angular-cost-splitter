@@ -22,6 +22,12 @@ import { PaymentComponent } from './payment/payment.component';
 import { InputscreenComponent } from './inputscreen/inputscreen.component';
 import { FormsModule } from '@angular/forms';
 
+import { CommonModule } from '@angular/common';
+import { MatCommonModule } from '@angular/material/core';
+import {MatDialogModule} from '@angular/material/dialog';
+
+import { InputscreenPaymentComponent } from './inputscreen-payment/inputscreen-payment.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     BalanceComponent,
     ExpenseComponent,
     PaymentComponent,
-    InputscreenComponent
+    InputscreenComponent,
+    InputscreenPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -43,9 +50,16 @@ import { FormsModule } from '@angular/forms';
     MatTabsModule,
     MatButtonModule,
     MatMenuModule,
-    FormsModule
+    CommonModule,
+    MatCommonModule,
+    FormsModule,
+    MatDialogModule
+  
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [InputscreenComponent, InputscreenPaymentComponent]
+
 })
+
 export class AppModule { }
