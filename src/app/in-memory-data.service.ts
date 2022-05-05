@@ -8,14 +8,14 @@ export class InMemoryDataService implements InMemoryDbService {
 
   createDb() {
     const expenses = [
-      { id: 1, date: '1.1.2000', spentBy: 'Anton', description: 'Brot', amount: 300 },
-      { id: 2, date: '1.1.2000', spentBy: 'Walter', description: 'Milch', amount: 200 },
-      { id: 3, date: '1.1.2000', spentBy: 'Xaver', description: 'Honig', amount: 400 },
-      { id: 4, date: '1.1.2000', spentBy: 'Dora', description: 'Shirt', amount: 5000 }
+      { id: 1, date: '2022-4-23', spentBy: 'Anton', description: 'Brot', amount: 300 },
+      { id: 2, date: '2022-4-23', spentBy: 'Walter', description: 'Milch', amount: 200 },
+      { id: 3, date: '2022-4-25', spentBy: 'Xaver', description: 'Honig', amount: 400 },
+      { id: 4, date: '2022-5-4', spentBy: 'Dora', description: 'Shirt', amount: 5000 }
     ];
     const payments = [
-      { id: 1, date: '1.1.2000', spentBy: 'Anton', amount: 300, receivedBy: 'Xaver' },
-      { id: 2, date: '1.1.2000', spentBy: 'Dora', amount: 5000, receivedBy: 'Walter' }
+      { id: 1, date: '2022-5-1', spentBy: 'Anton', amount: 300, receivedBy: 'Xaver' },
+      { id: 2, date: '2022-4-28', spentBy: 'Dora', amount: 5000, receivedBy: 'Walter' }
     ];
     const users = [
       { id: 1, name: 'Anton' },
