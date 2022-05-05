@@ -21,6 +21,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     JournalComponent,
     BalanceComponent,
     ExpenseComponent,
-    PaymentComponent
+    PaymentComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

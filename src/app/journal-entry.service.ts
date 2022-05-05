@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Expense } from './expense/expense';
 import { IJournalEntry } from './journal/journal.component';
+import { MessageService } from './message.service';
 import { Payment } from './payment/payment';
 
 @Injectable({
@@ -13,7 +14,8 @@ export class JournalEntryService {
   private paymentsUrl = 'api/payments';
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private messageService: MessageService
   ) { }
   
   getExpenses(): Observable<Expense[]> {
