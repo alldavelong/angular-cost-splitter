@@ -18,10 +18,21 @@ import { JournalComponent } from './journal/journal.component';
 import { BalanceComponent } from './balance/balance.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { PaymentComponent } from './payment/payment.component';
+
+import { InputscreenComponent } from './inputscreen/inputscreen.component';
+import { FormsModule } from '@angular/forms';
+
+import { CommonModule } from '@angular/common';
+import { MatCommonModule } from '@angular/material/core';
+import {MatDialogModule} from '@angular/material/dialog';
+
+import { InputscreenPaymentComponent } from './inputscreen-payment/inputscreen-payment.component';
+
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
+
 
 @NgModule({
   declarations: [
@@ -33,6 +44,8 @@ import { MessagesComponent } from './messages/messages.component';
     BalanceComponent,
     ExpenseComponent,
     PaymentComponent,
+    InputscreenComponent,
+    InputscreenPaymentComponent,
     MessagesComponent
   ],
   imports: [
@@ -43,12 +56,19 @@ import { MessagesComponent } from './messages/messages.component';
     MatTabsModule,
     MatButtonModule,
     MatMenuModule,
+    CommonModule,
+    MatCommonModule,
+    FormsModule,
+    MatDialogModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [InputscreenComponent, InputscreenPaymentComponent]
+
 })
+
 export class AppModule { }

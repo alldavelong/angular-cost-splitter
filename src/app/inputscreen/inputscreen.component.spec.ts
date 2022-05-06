@@ -1,19 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MenuPlusComponent } from './menu-plus.component';
 
-describe('MenuPlusComponent', () => {
-  let component: MenuPlusComponent;
-  let fixture: ComponentFixture<MenuPlusComponent>;
+import { InputscreenComponent } from './inputscreen.component';
+
+describe('InputscreenComponent', () => {
+  let component: InputscreenComponent;
+  let fixture: ComponentFixture<InputscreenComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuPlusComponent ]
+      declarations: [ InputscreenComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MenuPlusComponent);
+    fixture = TestBed.createComponent(InputscreenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

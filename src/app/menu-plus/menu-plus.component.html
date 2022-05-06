@@ -2,14 +2,15 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
-      <span>Abrechnen</span>
+    <button mat-menu-item (click) ="onSelect()">
+      <span>Ausgabe</span>
     </button>
-    <button mat-menu-item>
+    <button mat-menu-item (click) ="onSelectPayment()">
       <span>Zahlung</span>
     </button>
     <button mat-menu-item>
-      <span>Ausgabe</span>
+      <span>Abrechnen</span>
     </button>
+
   </mat-menu>
-  
+
