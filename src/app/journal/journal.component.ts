@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { EXPENSES } from '../mock-expenses';
+import { Expense } from '../expense/expense';
+import { JournalEntryService } from '../journal-entry.service';
+import { Payment } from '../payment/payment';
 
 @Component({
   selector: 'app-journal',
@@ -8,11 +10,27 @@ import { EXPENSES } from '../mock-expenses';
 })
 export class JournalComponent implements OnInit {
 
-  expenses = EXPENSES;
+  expenses: Expense[] = [];
+  payments: Payment[] = [];
 
-  constructor() { }
+  constructor(private journalEntryService: JournalEntryService) { }
 
   ngOnInit(): void {
+    this.getPayments();
+    this.getExpenses();
   }
 
+  getPayments(): void {
+    this.journalEntryService.getPayments().subscribe(payments => this.payments = payments);
+  }
+  getExpenses(): void {
+    this.journalEntryService.getExpenses().subscribe(expenses => this.expenses = expenses);
+  }
+}
+
+export interface IJournalEntry {
+  id: number;
+  date: Date;
+  spentBy: string;
+  amount: number;
 }

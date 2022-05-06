@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NaviComponent } from './navi/navi.component';
-import { ListComponent } from './list/list.component';
 import { MenuPlusComponent } from './menu-plus/menu-plus.component';
 import { FormComponent } from './form/form.component';
 
@@ -19,6 +18,7 @@ import { JournalComponent } from './journal/journal.component';
 import { BalanceComponent } from './balance/balance.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { PaymentComponent } from './payment/payment.component';
+
 import { InputscreenComponent } from './inputscreen/inputscreen.component';
 import { FormsModule } from '@angular/forms';
 
@@ -28,11 +28,16 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 import { InputscreenPaymentComponent } from './inputscreen-payment/inputscreen-payment.component';
 
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule } from '@angular/common/http';
+import { InMemoryDataService } from './in-memory-data.service';
+import { MessagesComponent } from './messages/messages.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     NaviComponent,
-    ListComponent,
     MenuPlusComponent,
     FormComponent,
     JournalComponent,
@@ -40,7 +45,8 @@ import { InputscreenPaymentComponent } from './inputscreen-payment/inputscreen-p
     ExpenseComponent,
     PaymentComponent,
     InputscreenComponent,
-    InputscreenPaymentComponent
+    InputscreenPaymentComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
@@ -53,8 +59,11 @@ import { InputscreenPaymentComponent } from './inputscreen-payment/inputscreen-p
     CommonModule,
     MatCommonModule,
     FormsModule,
-    MatDialogModule
-  
+    MatDialogModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent],
