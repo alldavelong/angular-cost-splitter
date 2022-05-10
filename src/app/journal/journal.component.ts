@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Expense } from '../expense/expense';
+import { IExpense } from '../expense/expense';
+import { IPayment } from '../payment/payment';
 import { JournalEntryService } from '../journal-entry.service';
-import { Payment } from '../payment/payment';
 
 @Component({
   selector: 'app-journal',
@@ -10,8 +10,8 @@ import { Payment } from '../payment/payment';
 })
 export class JournalComponent implements OnInit {
 
-  expenses: Expense[] = [];
-  payments: Payment[] = [];
+  expenses: IExpense[] = [];
+  payments: IPayment[] = [];
 
   constructor(private journalEntryService: JournalEntryService) { }
 
@@ -26,11 +26,17 @@ export class JournalComponent implements OnInit {
   getExpenses(): void {
     this.journalEntryService.getExpenses().subscribe(expenses => this.expenses = expenses);
   }
+
+  sortedEntries(): IMixedEntry[] {
+    const expenses: IMixedEntry[] = this.expenses.map(e => {return {date: e.date, expense: e}});
+    const payments: IMixedEntry[] = this.payments.map(p => {return {date: p.date, payment: p}});
+    return expenses.concat(payments).sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  }
+
 }
 
-export interface IJournalEntry {
-  id: number;
+interface IMixedEntry {
   date: Date;
-  spentBy: string;
-  amount: number;
+  expense?: IExpense;
+  payment?: IPayment;
 }

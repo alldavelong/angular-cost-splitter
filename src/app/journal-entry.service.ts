@@ -1,10 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Expense } from './expense/expense';
-import { IJournalEntry } from './journal/journal.component';
+import { IExpense } from './expense/expense';
 import { MessageService } from './message.service';
-import { Payment } from './payment/payment';
+import { IPayment } from './payment/payment';
 
 @Injectable({
   providedIn: 'root'
@@ -21,34 +20,29 @@ export class JournalEntryService {
     private messageService: MessageService
   ) { }
 
-  getExpenses(): Observable<Expense[]> {
-    return this.httpClient.get<Expense[]>(this.expensesUrl);
+  getExpenses(): Observable<IExpense[]> {
+    return this.httpClient.get<IExpense[]>(this.expensesUrl);
   }
 
-  getPayments(): Observable<Payment[]> {
-    return this.httpClient.get<Payment[]>(this.paymentsUrl);
+  getPayments(): Observable<IPayment[]> {
+    return this.httpClient.get<IPayment[]>(this.paymentsUrl);
   }
 
-  getExpense(id: number): Observable<Expense> {
+  getExpense(id: number): Observable<IExpense> {
     const url = `${this.expensesUrl}/${id}`;
-    return this.httpClient.get<Expense>(url);
+    return this.httpClient.get<IExpense>(url);
   }
 
-  updateExpense(expense: Expense): Observable<any> {
+  updateExpense(expense: IExpense): Observable<any> {
     return this.httpClient.put(this.expensesUrl, expense, this.httpOptions);
   }
 
-  addExpense(expense: Expense): Observable<Expense> {
-    return this.httpClient.post<Expense>(this.expensesUrl, expense, this.httpOptions);
+  addExpense(expense: IExpense): Observable<IExpense> {
+    return this.httpClient.post<IExpense>(this.expensesUrl, expense, this.httpOptions);
   }
 
-  deleteExpense(id: number): Observable<Expense> {
+  deleteExpense(id: number): Observable<IExpense> {
     const url = `${this.expensesUrl}/${id}`;
-    return this.httpClient.delete<Expense>(url, this.httpOptions);
+    return this.httpClient.delete<IExpense>(url, this.httpOptions);
   }
-
-  // getJournalEntries(): Observable<IJournalEntry[]> {
-  //   let entries = (<IJournalEntry[]>EXPENSES).concat(PAYMENTS);
-  //   return of(entries);
-  // }
 }
