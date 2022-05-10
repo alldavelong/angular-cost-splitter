@@ -14,7 +14,7 @@
                 <input type="text" id="IntendedUse" name="IntendedUse" [(ngModel)]="expense.description"><br>
 
                 <br>
-                <input type="text" id="Amount" name="Amount" value="{{ expense.amount | number:'1.2-2' }}"><br>
+                <input type="text" id="Amount" name="Amount" value="{{ expense.amount / 100 | number:'1.2-2' }}"><br>
             </form>
 
             <br>
