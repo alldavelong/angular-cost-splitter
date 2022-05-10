@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { IExpense } from './expense/expense';
 import { MessageService } from './message.service';
 import { IPayment } from './payment/payment';
+import { IUser } from './user';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,7 @@ import { IPayment } from './payment/payment';
 export class JournalEntryService {
   private expensesUrl = 'api/expenses';
   private paymentsUrl = 'api/payments';
+  private usersUrl = 'api/users';
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -44,5 +46,13 @@ export class JournalEntryService {
   deleteExpense(id: number): Observable<IExpense> {
     const url = `${this.expensesUrl}/${id}`;
     return this.httpClient.delete<IExpense>(url, this.httpOptions);
+  }
+
+  getUsers(): Observable<IUser[]> {
+    return this.httpClient.get<IUser[]>(this.usersUrl);
+  }
+  getUser(id: number): Observable<IUser> {
+    const url = `${this.usersUrl}/${id}`;
+    return this.httpClient.get<IUser>(url);
   }
 }
