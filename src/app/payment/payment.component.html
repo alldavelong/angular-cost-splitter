@@ -1,7 +1,8 @@
-<span class="date">{{payment.date}}</span>
-<br>
-<span class="amount"> {{payment.amount}} Cent</span>
-<br>
-<span class="spentBy">{{payment.spentBy}}</span>
-<br>
-<span class="receivedBy"> -> {{payment.receivedBy}}</span>
+<mat-card>
+    <span class="date">{{payment.date}}</span>
+    <br>
+    <span class="amount"> {{payment.amount}} Cent</span>
+    <span class="spentBy">von {{payment.spentBy}}</span>
+    <br>
+    <span class="receivedBy"> an {{payment.receivedBy}}</span>
+</mat-card>
