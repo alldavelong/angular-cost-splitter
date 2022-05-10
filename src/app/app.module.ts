@@ -19,14 +19,14 @@ import { BalanceComponent } from './balance/balance.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { PaymentComponent } from './payment/payment.component';
 
-import { InputscreenComponent } from './inputscreen/inputscreen.component';
+import { InputscreenComponent } from './expense-form/expense-form.component';
 import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { MatCommonModule } from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import { InputscreenPaymentComponent } from './inputscreen-payment/inputscreen-payment.component';
+import { InputscreenPaymentComponent } from './payment-form/payment-form.component';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';

@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputscreenPaymentComponent } from './inputscreen-payment.component';
+import { InputscreenPaymentComponent } from './payment-form.component';
 
 describe('InputscreenPaymentComponent', () => {
   let component: InputscreenPaymentComponent;

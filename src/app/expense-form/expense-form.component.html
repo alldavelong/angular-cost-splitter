@@ -1,0 +1,31 @@
+<mat-dialog-content *ngIf="expense && users">
+    <div class="dialog-content">
+        <div class="container" align="center">
+            <form>
+                <br>
+                <select>
+                    <option value="choose">Wer hat bezahlt?</option>
+                    <option *ngFor="let user of users" value="{{user}}">{{user.name}}</option>
+                </select>
+                <br>
+                <br>
+                <input type="date" id="date" name="date" value="{{formattedDate()}}"><br>
+                <br>
+                <input type="text" id="IntendedUse" name="IntendedUse" [(ngModel)]="expense.description"><br>
+
+                <br>
+                <input type="text" id="Amount" name="Amount" value="{{ expense.amount | number:'1.2-2' }}"><br>
+            </form>
+
+            <br>
+            <button mat-raised-button mat-dialog-close mat-dialog-close="true" color="primary" id="confirm">
+                Bestätigen
+            </button>
+
+            <button mat-mini-fab="inputscreen" mat-dialog-close mat-dialog-close="false" color="white" type="button">
+                x
+            </button>
+
+        </div>
+    </div>
+</mat-dialog-content>

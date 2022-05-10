@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { InputscreenPaymentComponent } from '../inputscreen-payment/inputscreen-payment.component';
-import { InputscreenComponent } from '../inputscreen/inputscreen.component';
+import { InputscreenPaymentComponent } from '../payment-form/payment-form.component';
+import { InputscreenComponent } from '../expense-form/expense-form.component';
 
 @Component({
   selector: 'app-menu-plus',

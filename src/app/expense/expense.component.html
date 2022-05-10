@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card (click)="onOpenExpense(expense.id)">
     <span class="date">{{expense.date}}</span>
     <br>
     <span class="description">{{expense.description}}</span>

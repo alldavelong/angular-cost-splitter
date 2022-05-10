@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputscreenComponent } from './inputscreen.component';
+import { InputscreenComponent } from './expense-form.component';
 
 describe('InputscreenComponent', () => {
   let component: InputscreenComponent;
