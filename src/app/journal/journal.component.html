@@ -1,6 +1,8 @@
-<ul class="entries2">
-    <li *ngFor="let entry of sortedEntries()">
-        <app-expense *ngIf="entry.expense != null" [expense]="entry.expense"></app-expense>
-        <app-payment *ngIf="entry.payment != null" [payment]="entry.payment"></app-payment>
-    </li>
-</ul>
+<dl class="journalEntries">
+    <dt *ngFor="let entry of expenses">
+        <app-expense [expense]="entry"></app-expense>
+    </dt>
+    <dt *ngFor="let entry of payments">
+        <app-payment [payment]="entry"></app-payment>
+    </dt>
+</dl>

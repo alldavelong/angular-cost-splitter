@@ -1,0 +1,25 @@
+mat-card{
+    background-color: rgb(245, 244, 244);
+    color: #6d6d6d;
+    margin: 1%;
+}
+.amount{
+    text-align: right;
+    font-weight: bold;
+    color: #4d4d4d;
+    float: right;
+    font-size: 1.2em;
+    
+}
+
+.description{
+    font-size: 1.2em;
+}
+.spentBy{
+    font-weight: bold;
+    color: #4d4d4d;
+}
+.date{
+    color: #afaeae;
+    font-size: 0.8em;
+}

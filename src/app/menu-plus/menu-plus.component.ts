@@ -19,8 +19,8 @@ export class MenuPlusComponent implements OnInit {
 
   onSelect(){
     let dialogRef = this.dialog.open(InputscreenComponent, {
-      height: '600px',
-      width: '500px',
+      height: '40em',
+      width: '30em',
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -30,8 +30,8 @@ export class MenuPlusComponent implements OnInit {
 
   onSelectPayment(){
     let dialogRef = this.dialog.open(InputscreenPaymentComponent,{
-      height: '600px',
-      width: '500px',
+      height: '40em',
+      width: '30em',
     });
 
     dialogRef.afterClosed().subscribe(result => {

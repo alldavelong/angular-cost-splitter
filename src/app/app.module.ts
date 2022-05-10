@@ -32,6 +32,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
 import { MessagesComponent } from './messages/messages.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { MessagesComponent } from './messages/messages.component';
     FormsModule,
     MatDialogModule,
     HttpClientModule,
+    MatCardModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
