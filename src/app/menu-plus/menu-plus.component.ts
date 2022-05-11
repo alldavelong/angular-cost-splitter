@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { InputscreenPaymentComponent } from '../payment-form/payment-form.component';
-import { InputscreenComponent } from '../expense-form/expense-form.component';
+import { PaymentFormComponent } from '../payment-form/payment-form.component';
+import { ExpenseFormComponent } from '../expense-form/expense-form.component';
 
 @Component({
   selector: 'app-menu-plus',
@@ -18,7 +18,7 @@ export class MenuPlusComponent implements OnInit {
   }
 
   onSelect(){
-    let dialogRef = this.dialog.open(InputscreenComponent, {
+    let dialogRef = this.dialog.open(ExpenseFormComponent, {
       height: '40em',
       width: '30em',
     });
@@ -29,7 +29,7 @@ export class MenuPlusComponent implements OnInit {
   }
 
   onSelectPayment(){
-    let dialogRef = this.dialog.open(InputscreenPaymentComponent,{
+    let dialogRef = this.dialog.open(PaymentFormComponent,{
       height: '40em',
       width: '30em',
     });

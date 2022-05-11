@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { InputscreenComponent } from '../expense-form/expense-form.component';
+import { ExpenseFormComponent } from '../expense-form/expense-form.component';
 import { JournalEntryService } from '../journal-entry.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class ExpenseComponent implements OnInit {
   ngOnInit(): void {}
 
   onOpenExpense(id: number) {
-    let dialogRef = this.dialog.open(InputscreenComponent, {
+    let dialogRef = this.dialog.open(ExpenseFormComponent, {
       data: {
         id: id
       }

@@ -19,14 +19,14 @@ import { BalanceComponent } from './balance/balance.component';
 import { ExpenseComponent } from './expense/expense.component';
 import { PaymentComponent } from './payment/payment.component';
 
-import { InputscreenComponent } from './expense-form/expense-form.component';
+import { ExpenseFormComponent } from './expense-form/expense-form.component';
 import { FormsModule } from '@angular/forms';
 
 import { CommonModule } from '@angular/common';
 import { MatCommonModule } from '@angular/material/core';
 import {MatDialogModule} from '@angular/material/dialog';
 
-import { InputscreenPaymentComponent } from './payment-form/payment-form.component';
+import { PaymentFormComponent } from './payment-form/payment-form.component';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
@@ -45,8 +45,8 @@ import {MatCardModule} from '@angular/material/card';
     BalanceComponent,
     ExpenseComponent,
     PaymentComponent,
-    InputscreenComponent,
-    InputscreenPaymentComponent,
+    ExpenseFormComponent,
+    PaymentFormComponent,
     MessagesComponent
   ],
   imports: [
@@ -69,7 +69,7 @@ import {MatCardModule} from '@angular/material/card';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [InputscreenComponent, InputscreenPaymentComponent]
+  entryComponents: [ExpenseFormComponent, PaymentFormComponent]
 
 })
 

@@ -9,14 +9,14 @@ import { IUser } from '../user';
   templateUrl: './expense-form.component.html',
   styleUrls: ['./expense-form.component.css']
 })
-export class InputscreenComponent implements OnInit {
+export class ExpenseFormComponent implements OnInit {
 
   expense?: IExpense;
   users?: IUser[];
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
-    public dialogRef: MatDialogRef<InputscreenComponent>,
+    public dialogRef: MatDialogRef<ExpenseFormComponent>,
     private journalEntryService: JournalEntryService
     ) { }
 

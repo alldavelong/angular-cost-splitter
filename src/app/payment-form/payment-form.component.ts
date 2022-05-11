@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './payment-form.component.html',
   styleUrls: ['./payment-form.component.css']
 })
-export class InputscreenPaymentComponent implements OnInit {
+export class PaymentFormComponent implements OnInit {
 
   constructor() { }
 
