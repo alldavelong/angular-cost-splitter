@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IExpense } from '../expense/expense';
 import { JournalEntryService } from '../journal-entry.service';
 import { IUser } from '../user';
@@ -16,6 +16,7 @@ export class InputscreenComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
+    public dialogRef: MatDialogRef<InputscreenComponent>,
     private journalEntryService: JournalEntryService
     ) { }
 
@@ -39,6 +40,19 @@ export class InputscreenComponent implements OnInit {
       return new Date(this.expense.date).toISOString().split('T')[0];
     } else {
       return '';
+    }
+  }
+
+  save(spentBy: string, date: string, description: string, amount: string): void {
+  if (this.expense) {
+      this.expense.spentBy = spentBy;
+      this.expense.date = new Date(date);
+      this.expense.description = description;
+      this.expense.amount = Number.parseInt(amount) * 100;
+
+      this.journalEntryService.updateExpense(this.expense)
+        .subscribe();
+      this.dialogRef.close(this.expense);
     }
   }
 

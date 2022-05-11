@@ -17,19 +17,19 @@ export class ExpenseComponent implements OnInit {
     private journalEntryService: JournalEntryService
     ) { }
 
-  ngOnInit(): void {
-    this.getExpense();
-  }
-
-  getExpense() {
-    this.journalEntryService.getExpense(this.expense.id);
-  }
+  ngOnInit(): void {}
 
   onOpenExpense(id: number) {
     let dialogRef = this.dialog.open(InputscreenComponent, {
       data: {
         id: id
       }
-    });
+    })
+      .afterClosed().subscribe(result => {
+        this.expense.spentBy = result.spentBy;
+        this.expense.date = result.date.toISOString().split('T')[0];
+        this.expense.description = result.description;
+        this.expense.amount = result.amount;
+      });
   }
 }

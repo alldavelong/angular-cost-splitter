@@ -3,22 +3,22 @@
         <div class="container" align="center">
             <form>
                 <br>
-                <select>
-                    <option value="choose">Wer hat bezahlt?</option>
-                    <option *ngFor="let user of users" value="{{user}}">{{user.name}}</option>
+                <select id="userDropdown" #userDropdown>
+                    <option value="choose" disabled>Wer hat bezahlt?</option>
+                    <option *ngFor="let user of users" value="{{user.name}}" [selected]="expense.spentBy == user.name">{{user.name}}</option>
                 </select>
                 <br>
                 <br>
-                <input type="date" id="date" name="date" value="{{formattedDate()}}"><br>
+                <input type="date" id="dateField" #dateField name="date" value="{{formattedDate()}}" required><br>
                 <br>
-                <input type="text" id="IntendedUse" name="IntendedUse" [(ngModel)]="expense.description"><br>
+                <input type="text" id="descriptionField" #descriptionField name="description" [(ngModel)]="expense.description"><br>
 
                 <br>
-                <input type="text" id="Amount" name="Amount" value="{{ expense.amount / 100 | number:'1.2-2' }}"><br>
+                <input type="text" id="Amount" #amoundField name="amount" value="{{ expense.amount / 100 | number:'1.2-2' }}"><br>
             </form>
 
             <br>
-            <button mat-raised-button mat-dialog-close mat-dialog-close="true" color="primary" id="confirm">
+            <button mat-raised-button color="primary" id="confirm" (click)="save(userDropdown.value, dateField.value, descriptionField.value, amoundField.value)">
                 Bestätigen
             </button>
 
