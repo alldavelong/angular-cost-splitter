@@ -28,6 +28,7 @@ export class MenuPlusComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (!result) {return;}
       console.log(`Dialog result: ${result}`);
       result.date = result.date.toISOString().split('T')[0];
       this.addedExpense.emit(result);
@@ -41,6 +42,7 @@ export class MenuPlusComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (!result) {return;}
       console.log(`Dialog result: ${result}`);
       result.date = result.date.toISOString().split('T')[0];
       this.addedPayment.emit(result);
