@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentFormComponent } from '../payment-form/payment-form.component';
 import { ExpenseFormComponent } from '../expense-form/expense-form.component';
+import { IExpense } from '../expense/expense';
+import { IPayment } from '../payment/payment';
 
 @Component({
   selector: 'app-menu-plus',
@@ -10,6 +12,8 @@ import { ExpenseFormComponent } from '../expense-form/expense-form.component';
 })
 export class MenuPlusComponent implements OnInit {
  
+  @Output() addedExpense: EventEmitter<IExpense> = new EventEmitter();
+  @Output() addedPayment: EventEmitter<IPayment> = new EventEmitter();
 
   constructor(public dialog: MatDialog) {
    }
@@ -25,6 +29,8 @@ export class MenuPlusComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      result.date = result.date.toISOString().split('T')[0];
+      this.addedExpense.emit(result);
     }); 
   }
 
@@ -36,6 +42,8 @@ export class MenuPlusComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(`Dialog result: ${result}`);
+      result.date = result.date.toISOString().split('T')[0];
+      this.addedPayment.emit(result);
     }); 
   }
 }

@@ -13,19 +13,19 @@ export class ExpenseComponent implements OnInit {
   @Input() expense: any;
 
   constructor(
-    public dialog: MatDialog,
-    private journalEntryService: JournalEntryService
+    public dialog: MatDialog
     ) { }
 
   ngOnInit(): void {}
 
-  onOpenExpense(id: number) {
+  openExpenseForm(id: number) {
     let dialogRef = this.dialog.open(ExpenseFormComponent, {
       data: {
         id: id
       }
     })
       .afterClosed().subscribe(result => {
+        if (!result) {return;}
         this.expense.spentBy = result.spentBy;
         this.expense.date = result.date.toISOString().split('T')[0];
         this.expense.description = result.description;

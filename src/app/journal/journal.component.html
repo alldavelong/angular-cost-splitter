@@ -4,3 +4,4 @@
         <app-payment *ngIf="entry.payment != null" [payment]="entry.payment"></app-payment>
     </dt>
 </dl>
+<app-menu-plus (addedExpense)="addExpense($event)" (addedPayment)="addPayment($event)"></app-menu-plus>

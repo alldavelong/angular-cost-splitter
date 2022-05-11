@@ -4,7 +4,7 @@
             <form>
                 <br>
                 <select id="userDropdown" #userDropdown>
-                    <option value="choose" disabled>Wer hat bezahlt?</option>
+                    <option value="choose" disabled [selected]="isNew">Wer hat bezahlt?</option>
                     <option *ngFor="let user of users" value="{{user.name}}" [selected]="expense.spentBy == user.name">{{user.name}}</option>
                 </select>
                 <br>
