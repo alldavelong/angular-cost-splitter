@@ -1,7 +1,8 @@
 .mat-fab{
-    position: absolute;
+    position: fixed;
     right:    0;
     bottom:   0;
+    z-index: 2000;
 }
 .mat-mini-fab {
     position: absolute;
