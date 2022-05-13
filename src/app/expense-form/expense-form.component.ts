@@ -56,6 +56,11 @@ export class ExpenseFormComponent implements OnInit {
   }
 
   save(spentBy: string, date: string, description: string, amount: string): void {
+    if (spentBy == 'choose' || date == '' || description == '' || amount == '') {
+      window.alert('Bitte alle Felder ausfüllen!');
+      return;
+    }
+
     if (!this.expense) {return;}
     this.expense.spentBy = spentBy;
     this.expense.date = new Date(date);
