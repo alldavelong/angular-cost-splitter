@@ -3,11 +3,11 @@ mat-card{
     color: #6d6d6d;
     margin: 1%;
 }
-.amount{
-    text-align: right;
+.amount{ 
     font-weight: bold;
     color: #4d4d4d;
     float: right;
+    margin-right: 8%;
     font-size: 1.2em;
     
 }
