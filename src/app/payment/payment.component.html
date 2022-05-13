@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card (click)="openPaymentForm(payment.id)">
     <span class="date">{{payment.date}}</span>
     <br>
     <span class="amount"> {{payment.amount/100 | number:'1.2-2'}} €</span>
