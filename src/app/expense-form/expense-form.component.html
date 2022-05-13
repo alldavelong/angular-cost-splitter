@@ -14,11 +14,11 @@
                 <input type="text" id="descriptionField" #descriptionField name="description" [(ngModel)]="expense.description"><br>
 
                 <br>
-                <input type="text" id="Amount" #amoundField name="amount" value="{{ expense.amount / 100 | number:'1.2-2' }}"><br>
+                <input type="number" id="Amount" #amountField name="amount" value="{{ expense.amount / 100 | number:'1.2-2' }}"><br>
             </form>
 
             <br>
-            <button mat-raised-button color="primary" id="confirm" (click)="save(userDropdown.value, dateField.value, descriptionField.value, amoundField.value)">
+            <button mat-raised-button color="primary" id="confirm" (click)="save(userDropdown.value, dateField.value, descriptionField.value, amountField.value)">
                 Bestätigen
             </button>
 
