@@ -1,35 +1,30 @@
-
+<mat-dialog-content *ngIf="payment && users">
     <div class="dialog-content">
         <div class="container" align = "center"> 
             <form>
                 <br>   
-                    <select ng-model="myVar">
-                        <option value="Choose your name">Wer hat bezahlt?
-                        <option value="name1">Name1
-                        <option value="name2">Name2
-                        <option value="name3">Name3
-                        <option value="name3">Name4
+                    <select id="userDropdown" #userDropdown1>
+                        <option value="choose" disabled [selected]="isNew">Wer hat bezahlt?</option>
+                        <option *ngFor="let user of users" value="{{user.name}}" [selected]="payment.spentBy == user.name">{{user.name}}</option>
                     </select>
                 <br>
                 <br>   
-                    <select ng-model="myVar">
-                        <option value="Choose a name">Wer hat empfangen?
-                        <option value="name1">Name1
-                        <option value="name2">Name2
-                        <option value="name3">Name3
-                        <option value="name3">Name4
+                    <select id="userDropdown" #userDropdown2>
+                        <option value="choose" disabled [selected]="isNew">Wer hat empfangen?</option>
+                        <option *ngFor="let user of users" value="{{user.name}}" [selected]="payment.receivedBy == user.name">{{user.name}}</option>
                     </select>
                 <br>
             <br>
-                <input type="date" id="date" name="date" value="Date"><br>
+            <input type="date" id="dateField" #dateField name="date" value="{{formattedDate()}}" required><br>
             
             <br>
-                <input type="text" id="Amount" name="Amount" value="Amount / €"><br>  
+            <input type="number" id="Amount" #amountField name="amount" value="{{ payment.amount / 100 | number:'1.2-2' }}"><br>
             </form> 
        
         <br> 
-            <button mat-raised-button color="primary" id="confirm">Bestätigen
-            </button> 
+        <button mat-raised-button color="primary" id="confirm" (click)= "save(userDropdown1.value, userDropdown2.value, dateField.value, amountField.value)">
+            Bestätigen
+        </button>
        
 
             <button mat-mini-fab ="inputscreen" mat-dialog-close color="white" type="button">x
@@ -37,5 +32,5 @@
 
         </div>
     </div>
-
+</mat-dialog-content>
 

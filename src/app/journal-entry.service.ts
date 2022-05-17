@@ -29,6 +29,23 @@ export class JournalEntryService {
   getPayments(): Observable<IPayment[]> {
     return this.httpClient.get<IPayment[]>(this.paymentsUrl);
   }
+ getPayment(id: number): Observable<IPayment> {
+    const url = `${this.paymentsUrl}/${id}`;
+    return this.httpClient.get<IPayment>(url);
+  }
+
+  updatePayment(payment: IPayment): Observable<any>{
+    return this.httpClient.put(this.paymentsUrl, payment, this.httpOptions);
+  }
+
+  addPayment(payment: IPayment): Observable<IExpense>{
+    return this.httpClient.post<IExpense>(this.paymentsUrl, payment, this.httpOptions);
+  }
+
+  deletePayment(id: number): Observable<IPayment> {
+    const url = `${this.paymentsUrl}/${id}`;
+    return this.httpClient.delete<IPayment>(url, this.httpOptions);
+  }
 
   getExpense(id: number): Observable<IExpense> {
     const url = `${this.expensesUrl}/${id}`;
