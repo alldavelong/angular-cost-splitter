@@ -72,9 +72,16 @@ export class BalanceComponent implements OnInit {
     });
 
     this.users.forEach(user => {
-      if (this.balanceByUser == undefined) { this.balanceByUser = {}; }
-      this.balanceByUser[user.name] = evenExpenseShare - expensesPerUser[user.name] - payedPerUser[user.name];
+      this.balanceByUser[user.name] = -(evenExpenseShare - expensesPerUser[user.name] - payedPerUser[user.name]);
     });
+  }
+
+  updated(x: any) {
+    this.users = [];
+    this.expenses = [];
+    this.payments = [];
+    this.balanceByUser = {};
+    this.ngOnInit();
   }
 
 }

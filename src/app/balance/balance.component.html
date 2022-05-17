@@ -8,5 +8,4 @@
         </mat-card>      
 </div>
 
-
-<app-menu-plus></app-menu-plus>
+<app-menu-plus (addedExpense)="updated($event)" (addedPayment)="updated($event)"></app-menu-plus>
