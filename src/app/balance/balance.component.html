@@ -2,7 +2,8 @@
       <mat-card *ngFor="let user of users">
                 <dl>
                          <dt class="user" >
-                                {{user.name}}  {{getBalance(user.name)}}
+                                <span class="user-name">{{user.name}}</span>  
+                                <span class="balance">{{getBalance(user.name) /100  | number:'1.2-2'}} €</span>
                         </dt>
                 </dl>  
         </mat-card>      
