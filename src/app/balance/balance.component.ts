@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { IExpense } from '../expense/expense';
 import { JournalEntryService } from '../journal-entry.service';
 import { IPayment } from '../payment/payment';
+import { SettlementComponent } from '../settlement/settlement.component';
 import { IUser } from '../user';
+import { BalanceCalculator } from './balance-calculator';
 
 @Component({
   selector: 'app-balance',
@@ -16,9 +19,11 @@ export class BalanceComponent implements OnInit {
   users: IUser[] = [];
 
   balanceByUser: { [userName: string]: number } = {};
+  suggestedPayments: IPayment[] = [];
 
   constructor(
-    private journalEntryService: JournalEntryService
+    private journalEntryService: JournalEntryService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -44,44 +49,39 @@ export class BalanceComponent implements OnInit {
 
   getBalance(userName: string): number {
     if (Object.keys(this.balanceByUser).length == 0) { // is dictionary empty?
-      this.calculateBalances();
+      this.calculateBalance();
     }
     return this.balanceByUser[userName];
   }
 
-  calculateBalances(): void {
-    let totalExpenses = 0;
-    let expensesPerUser: { [userName: string]: number } = {};
-    let payedPerUser: { [userName: string]: number} = {};
-
-    this.users.forEach(user => {
-      expensesPerUser[user.name] = 0;
-      payedPerUser[user.name] = 0;
-    });
-
-    this.expenses.forEach(expense => {
-      totalExpenses += expense.amount;
-      expensesPerUser[expense.spentBy] += expense.amount;
-    });
-    
-    const evenExpenseShare = totalExpenses / this.users.length;
-    
-    this.payments.forEach(payment => {
-      payedPerUser[payment.spentBy] += payment.amount;
-      payedPerUser[payment.receivedBy] -= payment.amount;
-    });
-
-    this.users.forEach(user => {
-      this.balanceByUser[user.name] = -(evenExpenseShare - expensesPerUser[user.name] - payedPerUser[user.name]);
-    });
+  calculateBalance() {
+    let bc = new BalanceCalculator(this.users, this.expenses, this.payments);
+    this.balanceByUser = bc.calculateBalances();
+    this.suggestedPayments = bc.calculateSuggestedPayments();
   }
 
-  updated(x: any) {
+  update(x: any) {
     this.users = [];
     this.expenses = [];
     this.payments = [];
     this.balanceByUser = {};
     this.ngOnInit();
+  }
+
+  showSettlement(){
+    let dialogRef = this.dialog.open(SettlementComponent,{
+      height: '40em',
+      width: '30em',
+      data: {
+        suggestedPayments: this.suggestedPayments
+      }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) {return;}
+      // TODO
+      
+    }); 
   }
 
 }
