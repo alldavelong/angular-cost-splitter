@@ -7,8 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NaviComponent } from './navi/navi.component';
 import { MenuPlusComponent } from './menu-plus/menu-plus.component';
-import { FormComponent } from './form/form.component';
-
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button'
@@ -40,7 +38,6 @@ import {MatCardModule} from '@angular/material/card';
     AppComponent,
     NaviComponent,
     MenuPlusComponent,
-    FormComponent,
     JournalComponent,
     BalanceComponent,
     ExpenseComponent,
