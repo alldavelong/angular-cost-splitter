@@ -11,7 +11,7 @@ import { IPayment } from '../payment/payment';
   styleUrls: ['./menu-plus.component.css']
 })
 export class MenuPlusComponent implements OnInit {
- 
+
   @Output() addedExpense: EventEmitter<IExpense> = new EventEmitter();
   @Output() addedPayment: EventEmitter<IPayment> = new EventEmitter();
 
@@ -21,31 +21,31 @@ export class MenuPlusComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelectExpense(){
+  onSelectExpense() {
     let dialogRef = this.dialog.open(ExpenseFormComponent, {
       height: '40em',
       width: '30em',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {return;}
+      if (!result) { return; }
       // console.log(`Dialog result: ${result}`);
       result.date = result.date;
       this.addedExpense.emit(result);
-    }); 
+    });
   }
 
-  onSelectPayment(){
-    let dialogRef = this.dialog.open(PaymentFormComponent,{
+  onSelectPayment() {
+    let dialogRef = this.dialog.open(PaymentFormComponent, {
       height: '40em',
       width: '30em',
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) {return;}
+      if (!result) { return; }
       // console.log(`Dialog result: ${result}`);
       result.date = result.date;
       this.addedPayment.emit(result);
-    }); 
+    });
   }
 }

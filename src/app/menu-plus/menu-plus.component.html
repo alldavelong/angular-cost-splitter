@@ -1,16 +1,11 @@
 <button mat-fab [matMenuTriggerFor]="menu" color="primary">+
+</button>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="onSelectExpense()">
+    <span>Ausgabe</span>
   </button>
-
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click) ="onSelectExpense()">
-      <span>Ausgabe</span>
-    </button>
-    <button mat-menu-item (click) ="onSelectPayment()">
-      <span>Zahlung</span>
-    </button>
-    <button mat-menu-item>
-      <span>Abrechnen</span>
-    </button>
-
-  </mat-menu>
-
+  <button mat-menu-item (click)="onSelectPayment()">
+    <span>Zahlung</span>
+  </button>
+</mat-menu>
