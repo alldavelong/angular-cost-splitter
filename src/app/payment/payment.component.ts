@@ -26,7 +26,7 @@ export class PaymentComponent implements OnInit {
     })
       .afterClosed().subscribe(result => {
         if (!result) {return;}
-        this.payment.date = result.date.toISOString().split('T')[0];
+        this.payment.date = result.date;
         this.payment.amount = result.amount;
         this.payment.spentBy = result.spentBy;
         this.payment.receivedBy = result.receivedBy;

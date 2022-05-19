@@ -1,6 +1,6 @@
 export interface IPayment {
   id: number;
-  date: Date;
+  date: string;
   amount: number;
   spentBy: string;
   receivedBy: string;

@@ -29,7 +29,7 @@ export class ExpenseFormComponent implements OnInit {
       this.isNew = true;
       this.expense = {
         id: 0,
-        date: new Date(),
+        date: new Date().toISOString().split('T')[0],
         spentBy: '',
         description: '',
         amount: 0
@@ -47,13 +47,6 @@ export class ExpenseFormComponent implements OnInit {
       .subscribe(users => this.users = users);
   }
 
-  formattedDate() {
-    if (this.expense) {
-      return new Date(this.expense.date).toISOString().split('T')[0];
-    } else {
-      return '';
-    }
-  }
 
   save(spentBy: string, date: string, description: string, amount: string): void {
     if (spentBy == 'choose' || date == '' || description == '' || amount == '') {
@@ -63,7 +56,7 @@ export class ExpenseFormComponent implements OnInit {
 
     if (!this.expense) {return;}
     this.expense.spentBy = spentBy;
-    this.expense.date = new Date(date);
+    this.expense.date = date;
     this.expense.description = description;
     this.expense.amount = Number.parseInt(amount) * 100;
     

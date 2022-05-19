@@ -15,7 +15,7 @@
                     </select>
                 <br>
             <br>
-            <input type="date" id="dateField" #dateField name="date" value="{{formattedDate()}}" required><br>
+            <input type="date" id="dateField" #dateField name="date" value="{{payment.date}}" required><br>
             
             <br>
             <input type="number" id="Amount" #amountField name="amount" value="{{ payment.amount / 100 | number:'1.2-2' }}"><br>

@@ -16,12 +16,12 @@ export class MenuPlusComponent implements OnInit {
   @Output() addedPayment: EventEmitter<IPayment> = new EventEmitter();
 
   constructor(public dialog: MatDialog) {
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  onSelect(){
+  onSelectExpense(){
     let dialogRef = this.dialog.open(ExpenseFormComponent, {
       height: '40em',
       width: '30em',
@@ -29,8 +29,8 @@ export class MenuPlusComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {return;}
-      console.log(`Dialog result: ${result}`);
-      result.date = result.date.toISOString().split('T')[0];
+      // console.log(`Dialog result: ${result}`);
+      result.date = result.date;
       this.addedExpense.emit(result);
     }); 
   }
@@ -43,8 +43,8 @@ export class MenuPlusComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {return;}
-      console.log(`Dialog result: ${result}`);
-      result.date = result.date.toISOString().split('T')[0];
+      // console.log(`Dialog result: ${result}`);
+      result.date = result.date;
       this.addedPayment.emit(result);
     }); 
   }

@@ -31,7 +31,7 @@ export class PaymentFormComponent implements OnInit {
       this.isNew = true;
       this.payment = {
         id: 0,
-        date: new Date(),
+        date: new Date().toISOString().split('T')[0],
         spentBy: '',
         receivedBy: '',
         amount: 0,
@@ -54,14 +54,6 @@ export class PaymentFormComponent implements OnInit {
       .subscribe(users => this.users = users);
   }
 
-  formattedDate() {
-    if (this.payment) {
-      return new Date(this.payment.date).toISOString().split('T')[0];
-    } else {
-      return '';
-    }
-  }
-
 
   save(spentBy: string, receivedBy: string, date: string, amount: string): void {
     if (spentBy == 'choose' || date == '' || amount == '' || receivedBy == 'choose') {
@@ -71,7 +63,7 @@ export class PaymentFormComponent implements OnInit {
 
     if (!this.payment) {return;}
     this.payment.spentBy = spentBy;
-    this.payment.date = new Date(date);
+    this.payment.date = date;
     this.payment.receivedBy = receivedBy;
     this.payment.amount = Number.parseInt(amount) * 100;
     

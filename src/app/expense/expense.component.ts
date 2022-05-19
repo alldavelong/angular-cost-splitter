@@ -27,7 +27,7 @@ export class ExpenseComponent implements OnInit {
       .afterClosed().subscribe(result => {
         if (!result) {return;}
         this.expense.spentBy = result.spentBy;
-        this.expense.date = result.date.toISOString().split('T')[0];
+        this.expense.date = result.date;
         this.expense.description = result.description;
         this.expense.amount = result.amount;
       });
