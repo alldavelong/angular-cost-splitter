@@ -1,0 +1,13 @@
+nav{ 
+    z-index: 800;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    overflow: hidden;
+}
+
+.a:hover{
+    color: white;
+    font-weight: bold;
+}
+

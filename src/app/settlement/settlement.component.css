@@ -1,0 +1,37 @@
+mat-card{
+    height: 20%;
+    background-color:rgba(185, 185, 185, 0.301);
+    color: rgb(245, 244, 244);
+    margin-bottom: 5%;
+}
+
+.spentBy{
+    float: left;
+    font-weight: 600;
+}
+
+.amount{
+    float: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    
+}
+
+.receivedby{
+    float: left;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.btn{
+    float: center;
+    width: 100%;
+    margin-top: 3%;
+    margin-right: 0%;
+    color: rgb(255, 255, 255);
+    background-color:#ff0267c0;
+    font-weight: bold;
+    font-size: 1em;
+
+}
+

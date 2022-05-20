@@ -17,3 +17,14 @@ mat-card{
     font-size: 1.2em;
     margin-right: 8%;
 }
+
+.abrechnen{
+    background-color: #8a8a8a;
+    color: rgb(255, 255, 255);
+    margin-top: 3%;
+    font-weight: bold;
+}
+
+.mat-card.abrechnen:hover{
+    background-color: #ff0267c0;
+}

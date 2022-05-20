@@ -1,5 +1,6 @@
+<br><br>
 <div *ngIf="expenses && payments && users">
-        <mat-card (click)="showSettlement()">Abrechnen</mat-card>
+        <mat-card class="abrechnen" (click)="showSettlement()">Abrechnen</mat-card>
         <mat-card *ngFor="let user of users">
                 <dl>
                         <dt class="user">
