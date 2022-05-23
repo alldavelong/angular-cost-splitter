@@ -57,7 +57,7 @@ export class ExpenseFormComponent implements OnInit {
     this.expense.spentBy = spentBy;
     this.expense.date = date;
     this.expense.description = description;
-    this.expense.amount = Number.parseInt(amount) * 100;
+    this.expense.amount = Number.parseFloat(amount) * 100;
     
     if (this.isNew) {
       this.journalEntryService.addExpense(this.expense).subscribe();

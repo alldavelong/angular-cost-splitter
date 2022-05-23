@@ -64,7 +64,7 @@ export class PaymentFormComponent implements OnInit {
     this.payment.spentBy = spentBy;
     this.payment.date = date;
     this.payment.receivedBy = receivedBy;
-    this.payment.amount = Number.parseInt(amount) * 100;
+    this.payment.amount = Number.parseFloat(amount) * 100;
     
     if (this.isNew) {
       this.journalEntryService.addPayment(this.payment).subscribe();
