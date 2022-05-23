@@ -30,7 +30,7 @@ export class JournalComponent implements OnInit {
   sortedEntries(): IMixedEntry[] {
     const expenses: IMixedEntry[] = this.expenses.map(e => {return {date: new Date(e.date), expense: e}});
     const payments: IMixedEntry[] = this.payments.map(p => {return {date: new Date(p.date), payment: p}});
-    return expenses.concat(payments).sort((a,b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+    return expenses.concat(payments).sort((b,a) => new Date(a.date).getTime() - new Date(b.date).getTime());
   }
   
   addExpense(expense: IExpense) {
