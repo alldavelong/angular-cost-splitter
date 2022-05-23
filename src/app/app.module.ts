@@ -30,7 +30,6 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { InMemoryDataService } from './in-memory-data.service';
-import { MessagesComponent } from './messages/messages.component';
 import { MatCardModule } from '@angular/material/card';
 import { SettlementComponent } from './settlement/settlement.component';
 
@@ -46,7 +45,6 @@ import { SettlementComponent } from './settlement/settlement.component';
     PaymentComponent,
     ExpenseFormComponent,
     PaymentFormComponent,
-    MessagesComponent,
     SettlementComponent
   ],
   imports: [

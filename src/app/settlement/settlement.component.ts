@@ -1,6 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { BalanceCalculator } from '../balance/balance-calculator';
 import { IExpense } from '../expense/expense';
 import { JournalEntryService } from '../journal-entry.service';
 import { IPayment } from '../payment/payment';

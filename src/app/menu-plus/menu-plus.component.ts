@@ -29,7 +29,6 @@ export class MenuPlusComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) { return; }
-      // console.log(`Dialog result: ${result}`);
       result.date = result.date;
       this.addedExpense.emit(result);
     });
@@ -43,7 +42,6 @@ export class MenuPlusComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) { return; }
-      // console.log(`Dialog result: ${result}`);
       result.date = result.date;
       this.addedPayment.emit(result);
     });

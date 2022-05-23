@@ -2,7 +2,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { IExpense } from './expense/expense';
-import { MessageService } from './message.service';
 import { IPayment } from './payment/payment';
 import { IUser } from './user';
 
@@ -18,8 +17,7 @@ export class JournalEntryService {
   };
 
   constructor(
-    private httpClient: HttpClient,
-    private messageService: MessageService
+    private httpClient: HttpClient
   ) { }
 
   getExpenses(): Observable<IExpense[]> {
