@@ -30,7 +30,6 @@ export class PaymentFormComponent implements OnInit {
     } else {
       this.isNew = true;
       this.payment = {
-        id: 0,
         date: new Date().toISOString().split('T')[0],
         spentBy: '',
         receivedBy: '',

@@ -28,7 +28,6 @@ export class ExpenseFormComponent implements OnInit {
     } else {
       this.isNew = true;
       this.expense = {
-        id: 0,
         date: new Date().toISOString().split('T')[0],
         spentBy: '',
         description: '',

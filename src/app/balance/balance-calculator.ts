@@ -41,7 +41,6 @@ export class BalanceCalculator {
             this.balanceByUser[user.name] = -(evenExpenseShare - expensesPerUser[user.name] - payedPerUser[user.name]);
         });
 
-        // this.calculateSuggestedPayments();
         return this.balanceByUser;
       }
 
@@ -52,16 +51,10 @@ export class BalanceCalculator {
         
         let payers = Object.entries(this.balanceByUser).filter(([key, val]) => val < 0);
         let receivers = Object.entries(this.balanceByUser).filter(([key, val]) => val > 0);
-        
-        // payers.map(([key, val]) => console.log(key, ': ', val));
-        // let count = 0;
 
         while (payers.length > 0 || receivers.length > 0) {
             payers.sort((a, b) => a[1] - b[1]); // descending
             receivers.sort((a, b) => b[1] - a[1]); // ascending
-
-            payers.map(([key, val]) => console.log(key, ': ', val));
-            receivers.map(([key, val]) => console.log(key, ': ', val));
 
             let currentPayer = payers[0]; // highest payer
             let possibleReceiver;
@@ -72,7 +65,7 @@ export class BalanceCalculator {
                     if (i + 1 == receivers.length) {
                         possibleAmount = receivers[i][1] // can only receive a part - but must, because no one is left
                     } else {
-                        continue; // skip
+                        continue;
                     }
                 } else { // can receive the whole payment
                     possibleAmount = currentPayer[1];
@@ -83,7 +76,6 @@ export class BalanceCalculator {
 
             if (possibleReceiver != undefined) {
                 let newPayment: IPayment = {
-                    id: 0,
                     date: new Date().toISOString().split('T')[0],
                     amount: Math.abs(possibleAmount),
                     spentBy: currentPayer[0],
@@ -91,25 +83,13 @@ export class BalanceCalculator {
                 }
                 possibleReceiver[1] -= newPayment.amount;
                 currentPayer[1] += newPayment.amount;
-                console.log(newPayment);
                 suggestedPayments.push(newPayment);
             }
                 
             payers = payers.filter(payer => payer[1] != 0);
             receivers = receivers.filter(receiver => receiver[1] != 0);
-
-           
-            // count += 1;
-            // if (count > 3) {break;}
-
         }
 
-        console.log(suggestedPayments);
         return suggestedPayments;
     }
-}
-
-// TODO does this work?
-export interface IBalanceByUser {
-    [userName: string]: number
 }
