@@ -79,7 +79,7 @@ export class BalanceComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) {return;}
-      // TODO
+      this.update(result);
       
     }); 
   }

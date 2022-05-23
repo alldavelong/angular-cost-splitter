@@ -1,10 +1,18 @@
-<mat-dialog-content *ngIf="suggestedPayments">
-    <mat-card *ngFor="let payment of suggestedPayments">
-        <span class="amount"> {{payment.amount/100 | number:'1.2-2'}} €</span>
-        <span class="spentBy">von {{payment.spentBy}}</span>
+<mat-dialog-content *ngIf="selectablePayments">
+    <mat-card (click)="save()">
+        {{getSelectedPayments()?.length == 0 ? 'Keine Zahlungen ausgewählt' : 'Ausgewählte Zahlungen eintragen'}}
+    </mat-card>
+    <mat-card *ngFor="let payment of selectablePayments">
+        <span class="amount"> {{payment.payment.amount/100 | number:'1.2-2'}} €</span>
+        <span class="spentBy">von {{payment.payment.spentBy}}</span>
         <br>
-        <span class="receivedBy"> an {{payment.receivedBy}}</span> 
+        <span class="receivedBy"> an {{payment.payment.receivedBy}}</span> 
         <br>
-        <span><button type="button" class="btn">Eintragen</button></span>
+        <span><mat-button-toggle
+            [checked]="payment.selected"
+            (change)="$event.source.checked; payment.selected = !payment.selected"
+        >
+            {{payment.selected ? 'Ausgewählt' : 'Auswählen'}}
+        </mat-button-toggle></span>
     </mat-card>
 </mat-dialog-content>

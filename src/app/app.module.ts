@@ -23,6 +23,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatCommonModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 
@@ -62,6 +63,7 @@ import { SettlementComponent } from './settlement/settlement.component';
     MatDialogModule,
     HttpClientModule,
     MatCardModule,
+    MatButtonToggleModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     )
