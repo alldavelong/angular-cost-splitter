@@ -5,6 +5,13 @@ mat-card{
     margin-bottom: 5%;
 }
 
+.mat-mini-fab {
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    font-size: 2em;
+  }
+
 .spentBy{
     float: left;
     font-weight: 600;
