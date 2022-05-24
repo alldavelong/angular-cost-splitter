@@ -24,7 +24,3 @@ mat-card{
     margin-top: 3%;
     font-weight: bold;
 }
-
-.mat-card.abrechnen:hover{
-    background-color: #ff0267c0;
-}
