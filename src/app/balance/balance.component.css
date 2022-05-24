@@ -24,3 +24,9 @@ mat-card{
     margin-top: 3%;
     font-weight: bold;
 }
+
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 2px 1px -1px rgb(133, 133, 133), 
+                0 1px 1px 0 rgb(133, 133, 133), 
+                0 1px 3px 0 rgb(133, 133, 133);
+}
