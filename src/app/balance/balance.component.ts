@@ -70,7 +70,7 @@ export class BalanceComponent implements OnInit {
 
   showSettlement(){
     let dialogRef = this.dialog.open(SettlementComponent,{
-      height: 'auto',
+      height: '40em',
       width: '30em',
       data: {
         suggestedPayments: this.suggestedPayments

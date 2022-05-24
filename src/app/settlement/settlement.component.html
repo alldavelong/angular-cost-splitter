@@ -1,5 +1,5 @@
 <mat-dialog-content *ngIf="selectablePayments">
-    <mat-card appMaterialElevation (click)="save()" >
+    <mat-card (click)="save()">
         {{getSelectedPayments()?.length == 0 ? 'Keine Zahlungen ausgewählt' : 'Ausgewählte Zahlungen eintragen'}}
     </mat-card>
     <mat-card *ngFor="let payment of selectablePayments">
@@ -10,12 +10,14 @@
         <br>
         <span><mat-button-toggle
             [checked]="payment.selected"
-            (change)="$event.source.checked; payment.selected = !payment.selected">
+            (change)="$event.source.checked; payment.selected = !payment.selected"
+        >
             {{payment.selected ? 'Ausgewählt' : 'Auswählen'}}
         </mat-button-toggle></span>
     </mat-card>
-</mat-dialog-content>
 
-<button mat-mini-fab="inputscreen" mat-dialog-close color="white" type="button">
+    <button mat-mini-fab="inputscreen" mat-dialog-close color="white" type="button">
         x
-</button>
+    </button>
+    
+</mat-dialog-content>
