@@ -9,6 +9,12 @@ mat-card{
     color: #4d4d4d;
 }
 
+.mat-card:not([class*=mat-elevation-z]) {
+    box-shadow: 0 2px 1px -1px rgb(133, 133, 133), 
+                0 1px 1px 0 rgb(133, 133, 133), 
+                0 1px 3px 0 rgb(133, 133, 133);
+}
+
 .balance{
     text-align: right;
     font-weight: bold;
@@ -27,4 +33,7 @@ mat-card{
 
 .mat-card.abrechnen:hover{
     background-color: #ff0267c0;
+}
+div{
+    height: 950px;
 }

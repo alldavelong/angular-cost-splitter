@@ -1,13 +1,14 @@
-nav{ 
+mat-tab-group{ 
     z-index: 800;
     position: fixed;
     width: 100%;
     top: 0;
     overflow: hidden;
+    margin-bottom: 48px;
 }
 
-.a:hover{
-    color: white;
-    font-weight: bold;
-}
+.example-stretched-tabs {
+    max-width: 800px;
+  }
+
 
