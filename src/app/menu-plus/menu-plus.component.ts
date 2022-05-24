@@ -22,10 +22,7 @@ export class MenuPlusComponent implements OnInit {
   }
 
   onSelectExpense() {
-    let dialogRef = this.dialog.open(ExpenseFormComponent, {
-      height: '40em',
-      width: '30em',
-    });
+    let dialogRef = this.dialog.open(ExpenseFormComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) { return; }
@@ -35,10 +32,7 @@ export class MenuPlusComponent implements OnInit {
   }
 
   onSelectPayment() {
-    let dialogRef = this.dialog.open(PaymentFormComponent, {
-      height: '40em',
-      width: '30em',
-    });
+    let dialogRef = this.dialog.open(PaymentFormComponent, {});
 
     dialogRef.afterClosed().subscribe(result => {
       if (!result) { return; }
