@@ -1,5 +1,5 @@
 <mat-dialog-content *ngIf="selectablePayments">
-    <mat-card (click)="save()">
+    <mat-card (click)="save()" class="settlementchosen">
         {{getSelectedPayments()?.length == 0 ? 'Keine Zahlungen ausgewählt' : 'Ausgewählte Zahlungen eintragen'}}
     </mat-card>
     <mat-card *ngFor="let payment of selectablePayments">

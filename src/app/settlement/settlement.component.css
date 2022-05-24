@@ -46,4 +46,12 @@ mat-card{
     width: 100%;
 }
 
+.noSettlementchosen{
+    background-color: #212529;
+}
+
+.settlementchosen{
+    background-color: #ff0267c0;
+}
+
 
